@@ -1,4 +1,4 @@
-package sample
+package tutorial
 
 import (
 	"github.com/gabetucker2/govariadics"
@@ -26,7 +26,10 @@ func myFunction(variadic ...any) {
 
 }
 
-func sample() {
+/**
+ The following is a sample function from which you could call another function using govariadics:
+*/
+func tutorial() {
 
 	// call A
 	myFunction("Gerry", 20, 5.9)
