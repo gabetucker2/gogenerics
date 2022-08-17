@@ -1,7 +1,7 @@
 package tutorial
 
 import (
-	"github.com/gabetucker2/govariadics"
+	"github.com/gabetucker2/gogenerics"
 )
 
 /**
