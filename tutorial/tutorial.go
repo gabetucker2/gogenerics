@@ -11,7 +11,7 @@ func myFunction(variadic ...any) {
 
 	// unpack variadic into optional parameters
 	var name, age, height any
-	govariadics.UnpackVariadic(variadic, &name, &age, &height)
+	gogenerics.UnpackVariadic(variadic, &name, &age, &height)
 
 	// sample body stuff below:
 	if name == nil {
@@ -27,7 +27,7 @@ func myFunction(variadic ...any) {
 }
 
 /**
- The following is a sample function from which you could call another function using govariadics:
+ The following is a sample function from which you could call another function using gogenerics:
 */
 func tutorial() {
 
