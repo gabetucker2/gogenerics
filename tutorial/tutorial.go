@@ -35,6 +35,9 @@ func tutorial() {
 		if height == nil {
 			// no height was entered
 		}
+
+		// If you need to convert height to a float, rather than an interface, do height.(float).
+		
 	}
 
 	/**
