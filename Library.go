@@ -53,8 +53,8 @@ func UnpackArray(arr any) []any {
 
 /** Returns a clone of this interface
 
-@param `toClone` type{any}
-@returns type{any}
+ @param `toClone` type{any}
+ @returns type{any}
 */
 func CloneInterface(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
