@@ -59,3 +59,15 @@ func UnpackArray(arr any) []any {
 func CloneInterface(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
+
+/** Returns out1 if test is true; else return out2
+ 
+ @param `test` type{bool}
+ @param `out1` type{any}
+ @param `out2` type{any}
+ @returns any `out1` or `out2`
+ @requires neither param yields a syntax error
+ */
+func IfElse(test bool, out1, out2 any) any {
+	if test { return out1 } else { return out2 }
+}

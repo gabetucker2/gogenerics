@@ -16,6 +16,7 @@ func tutorial() {
 		document your parameter guidelines, as any parameter type can be inputted to the `...any` variadic.  For
 		good practice, you should also ensure the parameter types match your expectations as not to raise any errors.
 	*/
+
 	myFunction := func(variadic ...any) {
 
 		// unpack variadic into optional parameters (this line, and the following two lines, are essential to make UnpackVariadic work)
@@ -43,6 +44,7 @@ func tutorial() {
 	/**
 	 You now have a go equivalent of "optional" parameters in the function.  In order to call 
 	*/
+
 	// call A
 	myFunction("Gerry", 20, 5.9)
 
@@ -69,6 +71,7 @@ func tutorial() {
 		of arrays of different type ([]any {[]string, []int, []float} ) or you have a function parameter accepting
 		an array whose contents you would like to convert into interfaces, this conversion process can be redundant and
 		irritating.  Our UnpackArray function automates this process.*/
+
 	myStringArray := []string {"Hey", "Hello", "Hi"}
 	myIntArray := []int {4, 2}
 
@@ -88,6 +91,7 @@ func tutorial() {
 	 Say you have a map of a specific type which you would like to convert into a map[any]any map.  This could be
 	 	because you have a map parameter that takes any map type or because you want to access the interface
 		properties.  UnpackMap automates this process:*/
+
 	mapOriginalType := map[string]int {"Bob" : 5, "Joe" : 2}
 	//mapGenericType :=
 	gogenerics.UnpackMap(mapOriginalType)
@@ -99,8 +103,18 @@ func tutorial() {
 	 Say you have an interface, and you would like to make a copy of this interface.  This process is very unintuitive in go,
 	 	especially since you cannot clone the object on pass like for mutable types (e.g., strings or ints).  So
 		CloneInterface automates this process:*/
+
 	var myInterface any
 	//myInterface2 := 
 	gogenerics.CloneInterface(myInterface)
+
+	// IfElse tutorial: -------------------------------------------------------------------------------------------------------
+
+	/**
+	 If something is true, you want to set a variable to one value.  Otherwise, you want to set it to another value.  IfElse
+	 	simply expedites this process:*/
+		
+	//lemonadeBalance :=
+	IfElse(3 > 5, 3, -5) // returns -5 since condition is false
 
 }
