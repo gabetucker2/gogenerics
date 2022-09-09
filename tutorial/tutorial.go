@@ -16,7 +16,7 @@ func tutorial() {
 	myVar := "Hey"
 	myFunc := func() {}
 
-	RemoveUnusedError(myVar, myFunc) // notice we don't do myFunc(), as that would call the function
+	gogenerics.RemoveUnusedError(myVar, myFunc) // notice we don't do myFunc(), as that would call the function
 
 	/**
 	 If you had an unused library import, you could also just call RemoveUnusedError(myFuncInTheLibrary) to remove that library
