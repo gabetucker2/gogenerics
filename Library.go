@@ -5,7 +5,8 @@ import (
 )
 
 /** Removes the "not used" compiler error from variables and functions
-	  OR removes the library imported but not used error by inputting a function in that library to this function
+	  OR
+	Removes the library imported but not used error by inputting a function in that library to this function
 
  @param `variadic` type{...[]any}
 */
