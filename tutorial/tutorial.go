@@ -9,6 +9,18 @@ func tutorial() {
 
 
 	// UnpackVariadics tutorial: -----------------------------------------------------------------------------------------
+
+	/**
+	 Assume you declared a function/variable and that you are not using them in your script, i.e., for debugging purposes:*/
+
+	myVar := "Hey"
+	myFunc := func() {}
+
+	RemoveUnusedError(myVar, myFunc)
+
+	/**
+	 If you had an unused library import, you could also just call RemoveUnusedError(myFuncInTheLibrary) to remove that library
+	 	import error.*/
 	
 	/**
 	 Say you have several parameters that you will only invoke in some function calls and not others.  This method makes
@@ -115,6 +127,6 @@ func tutorial() {
 	 	simply expedites this process:*/
 		
 	//lemonadeBalance :=
-	IfElse(3 > 5, 3, -5) // returns -5 since condition is false
+	gogenerics.IfElse(3 > 5, 3, -5) // returns -5 since condition is false
 
 }

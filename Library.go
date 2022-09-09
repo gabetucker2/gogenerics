@@ -4,6 +4,13 @@ import (
 	"reflect"
 )
 
+/** Removes the "not used" compiler error from variables and functions
+	  OR removes the library imported but not used error by inputting a function in that library to this function
+
+ @param `variadic` type{...[]any}
+*/
+ func RemoveUnusedError(variadic ...any) { }
+
 /** Sets a set of variables to the variable set passed into a variadic parameter
 
  @param `variadic` type{...[]any}
@@ -27,7 +34,7 @@ import (
  @return type{[]any}
  @requires `arr` is an array
  */
-func UnpackArray(arr any) []any {
+ func UnpackArray(arr any) []any {
     valType := reflect.ValueOf(arr)
     new := make([]any, valType.Len())
     for i := 0; i < valType.Len(); i++ {
@@ -52,11 +59,12 @@ func UnpackArray(arr any) []any {
 }
 
 /** Returns a clone of this interface
+ NOTE: Pass memory address
 
  @param `toClone` type{any}
  @returns type{any}
 */
-func CloneInterface(toClone any) any {
+ func CloneInterface(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
 
@@ -68,6 +76,6 @@ func CloneInterface(toClone any) any {
  @returns any `out1` or `out2`
  @requires neither param yields a syntax error
  */
-func IfElse(test bool, out1, out2 any) any {
+ func IfElse(test bool, out1, out2 any) any {
 	if test { return out1 } else { return out2 }
 }
