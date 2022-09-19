@@ -138,7 +138,9 @@ func tutorial() {
 	gogenerics.IsPointer(&myStr) // true
 	gogenerics.IsPointer(myStrAdr) // true
 
-	gogenerics.GetPointer(myStr) // nil
+	gogenerics.GetPointer(myStr) // "Hey"
+	gogenerics.GetPointer(myStr, true) // "Hey"
+	gogenerics.GetPointer(myStr, false) // nil
 	gogenerics.GetPointer(&myStr) // "Hey"
 	gogenerics.GetPointer(myStrAdr) // "Hey"
 

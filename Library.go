@@ -93,13 +93,27 @@ import (
 /** If an argument is an address, then return the value stored at that address; else return nil
 
  @param `var` type{any}
+ @param optional `returnIfNotPointer` type{bool} default true
  @return type{any}
  */
- func GetPointer(arg any) any {
+ func GetPointer(arg any, variadic ...any) any {
+
+	// unpack variadic into optional parameters
+	var returnIfNotPointer any
+	UnpackVariadic(variadic, &returnIfNotPointer)
+	// set default
+	if returnIfNotPointer == nil {
+		returnIfNotPointer = false
+	}
+
 	if IsPointer(arg) {
 		return *arg.(*any)
 	} else {
-		return nil
+		if returnIfNotPointer.(bool) {
+			return arg
+		} else {
+			return nil
+		}
 	}
 }
 
