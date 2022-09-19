@@ -129,4 +129,6 @@ func tutorial() {
 	//lemonadeBalance :=
 	gogenerics.IfElse(3 > 5, 3, -5) // returns -5 since condition is false
 
+	gogenerics.IsPointer("Hi") // false
+
 }

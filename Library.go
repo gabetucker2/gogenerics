@@ -64,7 +64,7 @@ import (
 
  @param `toClone` type{any}
  @returns type{any}
-*/
+ */
  func CloneInterface(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
@@ -79,4 +79,40 @@ import (
  */
  func IfElse(test bool, out1, out2 any) any {
 	if test { return out1 } else { return out2 }
+}
+
+/** Returns whether an argument is the address of another object
+
+ @param `arg` type{any}
+ @return type{bool}
+ */
+ func IsPointer(arg any) bool {
+	return reflect.ValueOf(arg).Kind() == reflect.Ptr
+}
+
+/** If an argument is an address, then return the value stored at that address; else return nil
+
+ @param `var` type{any}
+ @return type{any}
+ */
+ func GetPointer(arg any) any {
+	if IsPointer(arg) {
+		return *arg.(*any)
+	} else {
+		return nil
+	}
+}
+
+/** If an argument is an address, then update the value stored at that address to `to` and return the value; else return nil
+
+ @param `obj` type{any}
+ @return type{bool}
+ */
+ func SetPointer(arg, to any) any {
+	if IsPointer(arg) {
+		*arg.(*any) = to
+		return *arg.(*any)
+	} else {
+		return nil
+	}
 }
