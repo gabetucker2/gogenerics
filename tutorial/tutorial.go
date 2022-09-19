@@ -129,6 +129,21 @@ func tutorial() {
 	//lemonadeBalance :=
 	gogenerics.IfElse(3 > 5, 3, -5) // returns -5 since condition is false
 
+	// Pointer tutorial: ------------------------------------------------------------------------------------------------------
+	myStr := "Hey"
+	myStrAdr := &myStr
+
 	gogenerics.IsPointer("Hi") // false
+	gogenerics.IsPointer(myStr) // false
+	gogenerics.IsPointer(&myStr) // true
+	gogenerics.IsPointer(myStrAdr) // true
+
+	gogenerics.GetPointer(myStr) // nil
+	gogenerics.GetPointer(&myStr) // "Hey"
+	gogenerics.GetPointer(myStrAdr) // "Hey"
+
+	gogenerics.SetPointer(myStr, "Hi") // nil (and doesn't update)
+	gogenerics.SetPointer(&myStr, "Hi") // "Hi"
+	gogenerics.SetPointer(myStrAdr, "Hi") // "Hi"
 
 }
