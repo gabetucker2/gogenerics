@@ -120,6 +120,13 @@ func tutorial() {
 	//myInterface2 := 
 	gogenerics.CloneInterface(myInterface)
 
+	// MakeInterface tutorial: ------------------------------------------------------------------------------------------------
+
+	myInt := 1
+	// infStr := 
+	gogenerics.MakeInterface(&myInt)
+	// equivalent to `var myInf any; myInf = myInt;``
+
 	// IfElse tutorial: -------------------------------------------------------------------------------------------------------
 
 	/**

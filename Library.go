@@ -69,6 +69,14 @@ import (
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
 
+/** Returns a version of the object as an interface
+
+ @param `obj` type{any}
+ @return type{any} interface version of `obj`*/
+ func MakeInterface(obj any) any {
+	return reflect.ValueOf(obj).Interface()
+ } 
+
 /** Returns out1 if test is true; else return out2
  
  @param `test` type{bool}
