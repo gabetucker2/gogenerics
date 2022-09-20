@@ -92,11 +92,11 @@ import (
 
 /** If an argument is an address, then return the value stored at that address; else return nil
 
- @param `var` type{any}
+ @param `ptr` type{any}
  @param optional `returnIfNotPointer` type{bool} default true
  @return type{any}
  */
- func GetPointer(arg any, variadic ...any) any {
+ func GetPointer(ptr any, variadic ...any) any {
 
 	// unpack variadic into optional parameters
 	var returnIfNotPointer any
@@ -106,11 +106,11 @@ import (
 		returnIfNotPointer = false
 	}
 
-	if IsPointer(arg) {
-		return *arg.(*any)
+	if IsPointer(ptr) {
+		return *ptr.(*any)
 	} else {
 		if returnIfNotPointer.(bool) {
-			return arg
+			return ptr
 		} else {
 			return nil
 		}
@@ -119,14 +119,16 @@ import (
 
 /** If an argument is an address, then update the value stored at that address to `to` and return the value; else return nil
 
- @param `obj` type{any}
+ @param `ptr` type{any}
+	Must be an interface type upon being passed into the function
+ @param `to` type{any}
  @return type{bool}
  */
- func SetPointer(arg, to any) any {
-	if IsPointer(arg) {
-		*arg.(*any) = to
-		return *arg.(*any)
+ func SetPointer(ptr, to any) any {
+	if IsPointer(ptr) {
+		reflect.ValueOf(ptr).Elem().Set(reflect.ValueOf(&to).Elem())
+		return ptr
 	} else {
-		return nil
+		return nil // since even if we wanted to, we can't set non-pointer arg input
 	}
 }
