@@ -132,11 +132,11 @@ import (
  @param `to` type{any}
  @return type{bool}
  */
- func SetPointer(ptr, to any) any {
-	if IsPointer(ptr) {
-		reflect.ValueOf(ptr).Elem().Set(reflect.ValueOf(&to).Elem())
-		return ptr
+ func SetPointer(arg, to any) any {
+	if IsPointer(arg) {
+		reflect.ValueOf(arg).Elem().Set(reflect.ValueOf(&to).Elem())
+		return arg
 	} else {
-		return nil // since even if we wanted to, we can't set non-pointer arg input
+		return nil
 	}
 }
