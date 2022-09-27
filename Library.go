@@ -140,3 +140,13 @@ import (
 		return nil
 	}
 }
+
+/** Returns whether two arguments are pointers and are equal
+ 
+ @param `arg1` type{any}
+ @param `arg2` type{any}
+ @return type{bool}
+ */
+ func PointersEqual(arg1, arg2 any) bool {
+	return IsPointer(arg1) && IsPointer(arg2) && arg1 == arg2
+}
