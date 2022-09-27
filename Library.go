@@ -73,12 +73,11 @@ import (
  }
 
 /** Returns a clone of this interface
- NOTE: Pass memory address
 
  @param `toClone` type{any}
  @returns type{any}
  */
- func CloneInterface(toClone any) any {
+ func CloneStruct(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
 

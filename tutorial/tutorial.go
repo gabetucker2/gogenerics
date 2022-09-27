@@ -118,7 +118,7 @@ func tutorial() {
 
 	var myInterface any
 	//myInterface2 := 
-	gogenerics.CloneInterface(myInterface)
+	gogenerics.CloneInterface(&myInterface)
 
 	// MakeInterface tutorial: ------------------------------------------------------------------------------------------------
 
