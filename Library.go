@@ -76,10 +76,10 @@ import (
 
  @param `toClone` type{any}
  @requires
- 	`toClone` is a struct or a pointer
+ 	`toClone` is a pointer
  @returns type{any}
  */
- func Clone(toClone any) any {
+ func CloneObject(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
 
