@@ -75,9 +75,11 @@ import (
 /** Returns a clone of this interface
 
  @param `toClone` type{any}
+ @requires
+ 	`toClone` is a struct or a pointer
  @returns type{any}
  */
- func CloneStruct(toClone any) any {
+ func Clone(toClone any) any {
 	return reflect.New(reflect.ValueOf(toClone).Elem().Type()).Interface()
 }
 
