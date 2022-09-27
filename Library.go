@@ -59,6 +59,19 @@ import (
     return m
 }
 
+/** Get keys/vals from map as []any
+ @param `map` type{map}
+ @returns `keys` type{[]any}
+ @returns `vals` type{[]any}
+ */
+ func GetKeysValsFromMap(input any) (keys, vals []any) {
+	for k, v := range UnpackMap(input) {
+		keys = append(keys, k)
+		vals = append(vals, v)
+	}
+	return keys, vals
+ }
+
 /** Returns a clone of this interface
  NOTE: Pass memory address
 
