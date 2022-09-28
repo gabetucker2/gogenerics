@@ -72,7 +72,7 @@ import (
 	return keys, vals
  }
 
-/** Returns a clone of this interface
+/** Returns a clone of this object
 
  @param `toClone` type{any}
  @requires
@@ -125,7 +125,7 @@ import (
 	UnpackVariadic(variadic, &returnIfNotPointer)
 	// set default
 	if returnIfNotPointer == nil {
-		returnIfNotPointer = false
+		returnIfNotPointer = true
 	}
 
 	if IsPointer(ptr) {
@@ -163,4 +163,28 @@ import (
  */
  func PointersEqual(arg1, arg2 any) bool {
 	return IsPointer(arg1) && IsPointer(arg2) && arg1 == arg2
+}
+
+/** Returns whether two slices/arrays are equal
+
+ @param `in1` type{[]any}
+ @param `in2` type{[]any}
+ @return type{bool}
+ */
+ func SlicesEqual(in1, in2 any) bool {
+
+	test := true
+	arr1 := UnpackArray(in1)
+	arr2 := UnpackArray(in2)
+	if len(arr1) != len(arr2) {
+		test = false
+	}
+	for i := range arr1 {
+		if arr1[i] != arr2[i] {
+			test = false
+		}
+	}
+
+	return test
+
 }
