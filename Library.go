@@ -162,7 +162,7 @@ import (
  @return type{bool}
  */
  func PointersEqual(arg1, arg2 any) bool {
-	return IsPointer(arg1) && IsPointer(arg2) && reflect.ValueOf(arg1).Elem() == reflect.ValueOf(arg2).Elem()
+	return IsPointer(arg1) && IsPointer(arg2) && reflect.DeepEqual(arg1, arg2)
 }
 
 /** Returns whether two slices/arrays are equal
